@@ -43,4 +43,6 @@ RUN mkdir /data /data/koala_online /data/koala_online/upload /data/bak /data/log
 RUN useradd koala && chown koala /data
 
 ENTRYPOINT service mysql start && service redis-server start \
-&& mysql -u root -p -e "CREATE DATABASE koala_online" && bash
+&& mysql -u root -p -e "CREATE DATABASE koala_online" \
+&& python manage.py createall \
+&& bash
