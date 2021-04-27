@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Perspective transform in 2d canvas</title>
+
+
+
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+    <img id="swan" src="https://scrawl.rikweb.org.uk/img/carousel/swan.png" class="demo114" />
+    <!-- <canvas id="mycanvas" width="600" height="600"></canvas> -->
+
+    <p id="testmessage"></p>
+
+    <script src="https://scrawl.rikweb.org.uk/source_4-3-0/scrawlCore.js"></script>
+
+
+
+    <!-- <script src="js/index.js"></script> -->
+
+    <form action="https://www2.lunapic.com/editor/" method="post" enctype="multipart/form-data" name="sig">
+        <h2>考拉测温系统摄像头调试工具</h2>
+        <p>提示：拖动红点进行调试</p>
+        <br><br> 摄像头调试指导信息<br>
+        <script>
+            var points = null;
+            var position_x = 0;
+            var position_y = 0;
+            var scale = 1;
+            var scale_y = 1;
+        </script>
+        <input name="action" value="save-perspective" type="hidden">
+        <input type="hidden" name="pointsave" value="">
+
+        <input type="hidden" name="pad" value="0">
+        <input type="hidden" name="x" value="682">
+        <input type="hidden" name="y" value="416">
+        <style>
+            canvas {
+                border: 1px solid #888888;
+            }
+            
+            #box {
+                position: relative;
+            }
+            
+            #canvas_bg {
+                position: relative;
+                /* background: #666; */
+                transform: scale(1);
+            }
+            
+            #canvas {
+                position: absolute;
+                left: 0;
+                opacity: 0.9;
+                top: 0;
+            }
+            
+            #textarea_show {
+                width: 700px;
+                height: 100px;
+            }
+        </style>
+        
+        <textarea id="textarea_show" width="800" height="800"></textarea>
+        <p id="box">
+            <canvas width="1400" height="1000" id="canvas_bg"></canvas>
+            <canvas width="1400" height="1000" id="canvas"></canvas>
+        </p>
+    </form>
+</body>
+
+</html>

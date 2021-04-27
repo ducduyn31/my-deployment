@@ -38,11 +38,14 @@ RUN rm -f /etc/nginx/sites-enabled/default \
 COPY koala-online/deploy/koala_nginx.conf \
 /etc/nginx/conf.d/koala_online.conf
 
+COPY build/ /home/koala/build/
+
 RUN mkdir /data /data/koala_online /data/koala_online/upload /data/bak /data/log
 
 RUN useradd koala && chown koala /data
 
 ENTRYPOINT service mysql start && service redis-server start \
+&& service nginx start \
 && mysql -u root -p -e "CREATE DATABASE koala_online" \
 && python manage.py createall \
 && bash
